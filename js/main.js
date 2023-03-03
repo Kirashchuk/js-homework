@@ -1,4 +1,13 @@
-console.log('Sample JavaScript #1 HW #13');
+/* eslint-disable no-restricted-properties */
+/* eslint-disable prefer-exponentiation-operator */
+/* eslint-disable no-plusplus */
+/* eslint-disable quotes */
+/* eslint-disable no-var */
+/* eslint-disable vars-on-top */
+/* eslint-disable no-unused-vars */
+/* eslint-disable max-len */
+
+console.log("Sample JavaScript #1 HW #13");
 
 /*
  * #1
@@ -7,15 +16,18 @@ console.log('Sample JavaScript #1 HW #13');
  */
 
 // имя переменной: myNum, значение: 10
-
+var myNum = 10;
 // имя переменной: myStr, значение: 'строка'
-
+var myStr = "строка";
 // имя переменной: myBool, значение: true
-
+var myBool = true;
 // имя переменной: myArr, значения: 1, 2, 3, 4, 5
-
+var myArr = [1, 2, 3, 4, 5];
 // имя переменной myObj, значения: first: 'First Name', last: 'Last Name'
-
+var myObj = {
+  first: 'First Name',
+  last: 'Last Name',
+};
 /*
  * #2
  *
@@ -25,6 +37,7 @@ console.log('Sample JavaScript #1 HW #13');
  */
 
 // decimal2
+var decimal2 = myNum.toFixed(2);
 
 /*
  * #3
@@ -35,6 +48,11 @@ console.log('Sample JavaScript #1 HW #13');
  */
 
 // i
+var i = 5;
+console.log(i++);
+console.log(++i);
+console.log(--i);
+console.log(i--);
 
 /*
  * #4
@@ -46,16 +64,17 @@ console.log('Sample JavaScript #1 HW #13');
  */
 
 // myTest
-
-// +=
-
-// –=
-
-// *=
-
-// /=
-
-// %=
+var myTest = 20;
+myTest += myNum;
+console.log(myTest);
+myTest -= myNum;
+console.log(myTest);
+myTest *= myNum;
+console.log(myTest);
+myTest /= myNum;
+console.log(myTest);
+myTest %= myNum;
+console.log(myTest);
 
 /*
  * #5
@@ -64,13 +83,15 @@ console.log('Sample JavaScript #1 HW #13');
  */
 
 // константа Pi → myPi
+var myPi = Math.PI;
 
 // округленное значение числа 89.279 → myRound
+var myRound = Math.round(89.279);
 
 // случайное число между 0..10 → myRandom
-
+var myRandom = Math.round(Math.random() * 10);
 // 3 в 5 степени → myPow
-
+var myPow = Math.pow(3, 5);
 /*
  * #6
  *
@@ -81,7 +102,11 @@ console.log('Sample JavaScript #1 HW #13');
 // Мама мыла раму, рама мыла маму
 
 // strObj
-
+var strObj = {
+  str: 'Мама мыла раму, рама мыла маму',
+  length: 'Мама мыла раму, рама мыла маму'.length,
+};
+console.log(strObj.str.length);
 /*
  * #7
  *
@@ -90,7 +115,8 @@ console.log('Sample JavaScript #1 HW #13');
  */
 
 // isRamaPos
-
+var isRamaPos = strObj.str.indexOf('рама');
+console.log(isRamaPos);
 /*
  * #8
  *
@@ -101,9 +127,15 @@ console.log('Sample JavaScript #1 HW #13');
  */
 
 // strReplace
-
+var strReplace = strObj.str.replace('мыла', 'моет').replace('рама', 'Рама').replace('мыла', 'держит');
+console.log(strReplace);
 /*
  * #9
  *
  * Преобразуйте любую строку в верхний, затем в нижний регистры, результат отобразите в консоли.
  */
+var testString = strReplace;
+testString = testString.toUpperCase();
+console.log(testString);
+testString = testString.toLowerCase();
+console.log(testString);
