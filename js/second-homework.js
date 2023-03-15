@@ -1,4 +1,8 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable no-nested-ternary */
+/* eslint-disable linebreak-style */
+/* eslint-disable prefer-template */
+/* eslint-disable linebreak-style */
 /* eslint-disable no-restricted-properties */
 /* eslint-disable prefer-exponentiation-operator */
 /* eslint-disable no-plusplus */
@@ -7,6 +11,7 @@
 /* eslint-disable vars-on-top */
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
+
 var Obj1 = Object.create({
   age: 19,
   fame: 'sdsd',
@@ -29,6 +34,13 @@ console.log('Sample JavaScript #2 HW #14');
  * age – любой возраст, число
  */
 
+var userObj = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 30,
+  gender: "male",
+};
+
 /*
  * #2
  *
@@ -40,6 +52,15 @@ console.log('Sample JavaScript #2 HW #14');
  * userObj.lastName ← Фамилия'
  * userObj.fullName() → 'Имя Фамилия'.
  */
+
+userObj = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 30,
+  fullName() {
+    return this.firstName + ' ' + this.lastName;
+  },
+};
 
 /*
  * #3
@@ -58,6 +79,10 @@ console.log('Sample JavaScript #2 HW #14');
 // console.log(defUpperStr('My text')); // MY TEXT
 
 // console.log(defUpperStr()); // DEFAULT TEXT
+
+function defUpperStr(str) {
+  return (str || 'default text').toUpperCase();
+}
 
 /*
  * #4
@@ -81,6 +106,16 @@ console.log('Sample JavaScript #2 HW #14');
 // console.log(evenFn(15)); // [2, 4, 6, 8, 10, 12, 14]
 
 // console.log(evenFn(20)); // [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+function evenFn(n) {
+  var arr = [];
+
+  for (var i = 2; i <= n; i += 2) {
+    arr.push(i);
+  }
+
+  return arr;
+}
 
 /*
  * #5
@@ -108,6 +143,27 @@ console.log('Sample JavaScript #2 HW #14');
 // console.log(weekFn(1.5)); // null
 
 // console.log(weekFn('2')); // null
+
+function weekFn(n) {
+  switch (n) {
+    case 1:
+      return 'Понедельник';
+    case 2:
+      return 'Вторник';
+    case 3:
+      return 'Среда';
+    case 4:
+      return 'Четверг';
+    case 5:
+      return 'Пятница';
+    case 6:
+      return 'Суббота';
+    case 7:
+      return 'Воскресенье';
+    default:
+      return null;
+  }
+}
 
 /*
  * #6
@@ -162,6 +218,17 @@ console.log('Sample JavaScript #2 HW #14');
  * console.log(15, ageClassification(150) === null);
  */
 
+function ageClassification(n) {
+  return n < 0 ? null
+    : n <= 24 ? 'детский возраст'
+      : n <= 44 ? 'молодой возраст'
+        : n <= 65 ? 'средний возраст'
+          : n <= 75 ? 'пожилой возраст'
+            : n <= 90 ? 'старческий возраст'
+              : n <= 122 ? 'долгожители'
+                : null;
+}
+
 /*
  * #7
  *
@@ -184,6 +251,20 @@ console.log('Sample JavaScript #2 HW #14');
 // console.log(oddFn(15)); // [1, 3, 5, 7, 9, 11, 13, 15]
 
 // console.log(oddFn(20)); // [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+
+function oddFn(n) {
+  var arr = [];
+  var i = 0;
+
+  while (i < n) {
+    i++;
+    if (i % 2 !== 0) {
+      arr.push(i);
+    }
+  }
+
+  return arr;
+}
 
 /*
  * #8
@@ -225,3 +306,22 @@ console.log('Sample JavaScript #2 HW #14');
 // console.log(mainFunc(2, 5, cbAdd)); // 7
 
 // console.log(mainFunc(2, 5, 'not a func')); // false
+
+function mainFunc(a, b, func) {
+  if (typeof func !== 'function') {
+    return false;
+  }
+  return func(a, b);
+}
+
+function cbRandom(a, b) {
+  return Math.floor(Math.random() * (b - a + 1)) + a;
+}
+
+function cbPow(a, b) {
+  return Math.pow(a, b);
+}
+
+function cbAdd(a, b) {
+  return a + b;
+}
